@@ -171,7 +171,7 @@
   .polaroids{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .polaroid{background:#fff;padding:10px 10px 36px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(27,31,59,.12);transition:transform .25s;position:relative}
   .polaroid:nth-child(1){transform:rotate(-3deg)} .polaroid:nth-child(2){transform:rotate(2.5deg) translateY(14px)}
-  .polaroid:nth-child(3){transform:rotate(1.5deg)} .polaroid:nth-child(4){transform:rotate(-2deg) translateY(10px)}
+  .polaroid:nth-child(3){transform:rotate(1.5deg);grid-column:1/-1;justify-self:center;width:58%}
   .polaroid:hover{transform:rotate(0) scale(1.05);z-index:2}
   .polaroid .ph{aspect-ratio:1;background:repeating-linear-gradient(45deg,#FFF6DD 0 10px,#FFEFC2 10px 20px);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:.85rem;color:#8a6a10;padding:10px}
   .polaroid img{aspect-ratio:1;object-fit:cover;width:100%}
@@ -460,18 +460,16 @@
   <div class="wrap hobby">
     <div>
       <h2>Off the clock</h2>
-      <!-- Replace [Business name] with your charcuterie business name -->
-      <p style="margin-top:16px">I run a small charcuterie board business, <b>[Business name]</b>. It's the same instincts as product work: know who's coming, plan the layout, and make sure there's something for everyone.</p>
+      <p style="margin-top:16px">I run a small charcuterie board business, <a href="https://www.instagram.com/gachiandcharcuterieboards" target="_blank" rel="noopener"><b>Gachi and Charcuterie Boards</b></a>. It's the same instincts as product work: know who's coming, plan the layout, and make sure there's something for everyone.</p>
+      <p><a class="btn btn-sm" href="https://www.instagram.com/gachiandcharcuterieboards" target="_blank" rel="noopener">See the boards on Instagram</a></p>
       <div class="side-hobbies">
         <span>🧀 Building boards</span><span>☕ Daily espresso</span><span>🗺️ Making maps for fun</span><span>🍳 Cooking</span>
       </div>
     </div>
-    <!-- Swap each .ph div for <img src="assets/hobbies/board-1.jpg" alt="..."> -->
     <div class="polaroids">
-      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-1.jpg</div><figcaption>Grazing table</figcaption></figure>
-      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-2.jpg</div><figcaption>Date-night board</figcaption></figure>
-      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-3.jpg</div><figcaption>Party spread</figcaption></figure>
-      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-4.jpg</div><figcaption>Behind the scenes</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-1.jpg" alt="Charcuterie board with cheeses, cured meats, nuts, fruit and two bottles of Malbec" loading="lazy"><figcaption>Malbec night</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-2.jpg" alt="Long holiday grazing board with brie, salami, crackers and jam on a red-striped table" loading="lazy"><figcaption>Holiday party</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-3.jpg" alt="Two long charcuterie boards set out on a table at an outdoor event" loading="lazy"><figcaption>Garden party</figcaption></figure>
     </div>
   </div>
 </section>
