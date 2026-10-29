@@ -165,6 +165,8 @@
   .now-list span{color:#C9CCE0}
 
   /* hobbies */
+  .hobby>*,.hero .wrap>*,.now-wrap>*,.feature>*{min-width:0}
+  #hobbies{overflow:hidden}
   .hobby{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
   .polaroids{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .polaroid{background:#fff;padding:10px 10px 36px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(27,31,59,.12);transition:transform .25s;position:relative}
@@ -254,9 +256,9 @@
     <div class="mapcard" id="mapcard">
       <svg class="map" viewBox="0 0 480 340" role="img" aria-label="A route map from Miami, Florida to Roosevelt Island, New York">
         <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#D3DCF5" stroke-width="1"/></pattern>
+          <pattern id="graticule" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#D3DCF5" stroke-width="1"/></pattern>
         </defs>
-        <rect width="480" height="340" fill="url(#grid)"/>
+        <rect width="480" height="340" fill="url(#graticule)"/>
         <!-- soft "land" blobs -->
         <path d="M250 20 C320 30 360 70 350 120 C340 170 300 190 290 230 C282 262 300 300 280 330 L120 340 C100 280 130 230 170 200 C210 170 200 120 210 80 C218 50 230 25 250 20Z" fill="#DDEBDD"/>
         <path d="M300 230 C315 250 318 290 300 325" fill="none" stroke="#B9D3BA" stroke-width="2"/>
@@ -282,7 +284,7 @@
   <div class="wrap">
     <div><b>4 hrs to 10 min</b><span>map production time after my Python tool</span></div>
     <div><b>26,000+</b><span>artifact records cleaned and standardized</span></div>
-    <div><b>5 metros</b><span>analyzed in published smart-city equity research</span></div>
+    <div><b>50+ users</b><span>on the recruiting MVP I co-founded and shipped</span></div>
     <div><b>4 talks</b><span>at Esri UC and Tribal GIS, 2024–2025</span></div>
   </div>
 </div>
@@ -301,37 +303,48 @@
         <div class="org">Johnson Cornell Tech MBA, Roosevelt Island, NYC</div>
         <ul>
           <li>One-year, STEM-designated MBA built around product, data and tech.</li>
+          <li>Forte Fellow, a merit scholarship awarded to fewer than 2% of applicants.</li>
+          <li>Designing &amp; Building AI Solutions: built a job-fit matching agent and an assistant for general contractors.</li>
           <li>Associate at Big Red Ventures, doing due diligence on early-stage startups.</li>
-          <li>Coursework in data analytics (A/B testing, regression), strategy, and programming for data analysis.</li>
         </ul>
       </article>
       <article class="job">
-        <!-- Add your exact dates, e.g. "2023 – 2026" -->
-        <div class="when">2+ years</div>
+        <div class="when">Sep 2023 – Nov 2025</div>
         <h3>Geospatial Analyst</h3>
         <div class="org">Seminole Tribe of Florida, Tribal Historic Preservation Office (Archaeometry Section)</div>
         <ul>
-          <li>Built a Python automation pipeline that cut a 4-hour mapping process to 10 minutes; it was adopted across the office.</li>
-          <li>Launched real-time dashboards so field crews and managers could track progress in one place.</li>
-          <li>Cleaned and standardized 26,000+ artifact records for a new web-based site database.</li>
+          <li>Built a Python tool that cut map production from 4 hours to 10 minutes, then trained senior managers until it was used organization-wide.</li>
+          <li>Cleaned and standardized 26,000+ artifact records, defined metrics from them, and built dashboards leadership used to review 20+ years of data.</li>
+          <li>Partnered with 4 sections to map their workflows and ship custom web tools they actually adopted.</li>
+          <li>Ran a cemetery map digitization project end to end, including training and progress dashboards.</li>
           <li>Ran participatory mapping sessions with Tribal community members and co-published a book with original maps.</li>
-          <li>Trained staff on new field data collection tools and protocols.</li>
         </ul>
       </article>
       <article class="job">
-        <div class="when">Side venture, on pause</div>
+        <div class="when">Apr 2025 – Jun 2026</div>
         <h3>Co-founder</h3>
-        <div class="org">Mapletics Scouting</div>
+        <div class="org">Mapletics Scouting, one of two co-founders</div>
         <ul>
-          <li>Built a location-based baseball recruiting platform on Bubble, with Stripe payments.</li>
+          <li>Researched how college recruiting works and designed a platform that lets scouts search prospects by proximity, regional density and event date.</li>
+          <li>Built and shipped the MVP on Bubble with Stripe payments, onboarding 20+ scouts and 50+ users.</li>
         </ul>
       </article>
       <article class="job">
-        <div class="when">Finished in three years</div>
+        <div class="when">Nov 2022 – May 2023</div>
+        <h3>Research Assistant</h3>
+        <div class="org">University of Miami, SHIRE Lab</div>
+        <ul>
+          <li>Lead author on published research comparing smart-city equity across 5 U.S. cities, using a PCA-based disparity index.</li>
+          <li>Built a Google Maps locator that helped physicians at a low-income clinic in Homestead, FL refer patients faster.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="when">May 2023, finished in three years</div>
         <h3>B.A. Ecosystem Science and Policy</h3>
         <div class="org">University of Miami, minors in Geography and Sustainable Development</div>
         <ul>
-          <li>Co-published research on equity metrics for smart cities.</li>
+          <li>Managed a $15K+ annual budget and led 10+ sustainability initiatives across three student organizations.</li>
+          <li>2022 Summer Research Fellow, College of Arts &amp; Sciences.</li>
           <li>Started a Dining Dollar Donation Drive that raised $1,400+ a year for a campus food pantry.</li>
         </ul>
       </article>
@@ -362,30 +375,30 @@
     </article>
 
     <article class="feature">
-      <div class="f-media"><img style="object-fit:contain;background:#fff" src="assets/shovel-test-dashboard.jpg" alt="Shovel Test Tracker dashboard showing on- and off-reservation crew progress toward yearly goals" loading="lazy"></div>
+      <div class="f-media"><div class="bignum" style="background:repeating-radial-gradient(circle at 30% 60%,#FFE0E4 0 18px,#FFF 18px 36px)"><div><b style="color:#1B1F3B">20+ scouts</b><br><span>50+ users on the MVP</span></div></div></div>
       <div class="f-body">
-        <h3>Fieldwork hub and shovel test tracker</h3>
-        <div class="org">Seminole Tribe of Florida THPO</div>
+        <h3>Mapletics Scouting</h3>
+        <div class="org">Co-founder, sports tech startup</div>
         <dl class="pbo">
-          <div><dt>Problem</dt><dd>Managers couldn't see field progress until crews reported back, so goals slipped without anyone noticing.</dd></div>
-          <div><dt>Built</dt><dd>Live dashboards that pull field data as it's collected and track each crew against its yearly goal.</dd></div>
+          <div><dt>Problem</dt><dd>College scouts needed a way to find prospects by where they play and compete, not just by stats.</dd></div>
+          <div><dt>Built</dt><dd>Researched the recruiting process, designed the product, and shipped a no-code MVP where scouts search by proximity, regional density and event date.</dd></div>
         </dl>
-        <div class="outcome">Crews and managers now work from one live view of progress, so it's clear how far each crew is from its goal.</div>
-        <div class="tags"><span>ArcGIS Dashboards</span><span>Field Maps</span><span>KPI design</span><span>Stakeholder alignment</span></div>
+        <div class="outcome">Went from concept to a paid MVP on Bubble and Stripe, and onboarded 20+ scouts and 50+ users.</div>
+        <div class="tags"><span>0 to 1</span><span>User research</span><span>Bubble</span><span>Stripe</span></div>
       </div>
     </article>
 
     <article class="feature">
       <div class="f-media"><div class="bignum"><div><b>26,000+</b><br><span>artifact records, cleaned</span></div></div></div>
       <div class="f-body">
-        <h3>Site file redesign and artifact catalog</h3>
+        <h3>Artifact data cleanup and leadership dashboards</h3>
         <div class="org">Seminole Tribe of Florida THPO</div>
         <dl class="pbo">
-          <div><dt>Problem</dt><dd>Decades of site data sat in a legacy database that was hard to search and hard to trust.</dd></div>
-          <div><dt>Built</dt><dd>Helped redesign it as a web-based GIS system, and led the cleanup of the artifact catalog that feeds it.</dd></div>
+          <div><dt>Problem</dt><dd>Decades of artifact records were messy and inconsistent, so nobody could answer basic questions about them.</dd></div>
+          <div><dt>Built</dt><dd>Cleaned the catalog, defined metrics like depth, artifact type and era, and built interactive dashboards on top. It also fed the redesign of the site database.</dd></div>
         </dl>
-        <div class="outcome">26,000+ records standardized and spatially cleaned, ready for analysis in the new system.</div>
-        <div class="tags"><span>Data quality</span><span>Database migration</span><span>Web GIS</span></div>
+        <div class="outcome">26,000+ records standardized, and leadership can now review 20+ years of data in one dashboard.</div>
+        <div class="tags"><span>Data quality</span><span>Metric definition</span><span>Dashboards</span></div>
       </div>
     </article>
 
@@ -415,7 +428,7 @@
       <div class="talk"><div class="yr">2024</div><div><span class="kind">Talk</span><h4>Tribal GIS: Modernizing GIS workflows</h4><p>Live demos of Esri tools and Python automation for a room of tribal GIS teams.</p></div></div>
       <div class="talk"><div class="yr">2024–25</div><div><span class="kind">Conference</span><h4>Esri User Conference, Native Nations Summit</h4><p>Facilitated collaboration between the Seminole Tribe and other Native nations.</p></div></div>
       <div class="talk"><div class="yr">Book</div><div><span class="kind pub">Publication</span><h4>Tales of the Tamiami Trail</h4><p>Editor and map author. Built the book's final map from participatory mapping sessions.</p></div></div>
-      <div class="talk"><div class="yr">Paper</div><div><span class="kind pub">Publication</span><h4>Reorienting smart city metrics</h4><p>Co-authored equity research across five U.S. metros at the census-tract level.</p></div></div>
+      <div class="talk"><div class="yr">Paper</div><div><span class="kind pub">Publication</span><h4>Reorienting smart city metrics</h4><p>Lead author. Equity research across five U.S. metros at the census-tract level.</p></div></div>
       <div class="talk"><div class="yr">Story</div><div><span class="kind pub">StoryMap</span><h4>The Indian Removal Act, mapped</h4><p>Author of an interactive StoryMap verified with historians and Tribal members.</p></div></div>
     </div>
   </div>
@@ -469,9 +482,8 @@
     <h2>Let's find what matters in your data.</h2>
     <p style="margin-top:20px;font-size:1.2rem;color:var(--ink-soft)">I'm looking for product manager, product growth analyst and business analyst roles starting summer 2027, in NYC or Miami.</p>
     <div class="row">
-      <a class="btn btn-primary" href="mailto:gladizluciavelez@gmail.com">Email me</a>
-      <!-- Replace # with your LinkedIn URL -->
-      <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-primary" href="mailto:gv249@cornell.edu">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/gladizvelez" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="assets/Gladiz_Velez_Resume.pdf" download>Download résumé</a>
     </div>
   </div>
@@ -504,17 +516,24 @@ const projects = [
    imgs:["removal-trail.jpg","storymap-removed.jpg","storymap-spanish-florida.jpg"],
    body:"<p>An interactive StoryMap combining historical maps, policy context and migration routes to show how the Seminole were forced from their ancestral lands in the Southeast to territory west of the Mississippi.</p><p>I designed the narrative structure and the maps, and checked their historical accuracy with historians and Tribal members.</p><p><b>Role:</b> Author.</p>",
    tags:["Storytelling","ArcGIS StoryMaps","Information design"]},
+  {cat:"work", title:"Fieldwork hub and shovel test tracker", short:"Live dashboards that show each field crew's progress against its yearly goal.",
+   imgs:["shovel-test-dashboard.jpg"],
+   body:"<p>Managers couldn't see field progress until crews reported back. I centralized field data into live dashboards that track each crew against its yearly shovel-test goal, so crews and managers work from the same numbers.</p>",
+   tags:["ArcGIS Dashboards","Field Maps","KPI design"]},
+  {cat:"work", title:"Clinic referral locator", short:"A Google Maps tool that helped physicians at a low-income clinic refer patients faster.", tile:"Referral locator",
+   body:"<p>At the SHIRE Lab, I evaluated and categorized local health resources and built a Google Maps locator so physicians at a low-income clinic in Homestead, FL could find the right referral quickly.</p>",
+   tags:["Healthcare","Google Maps","User needs"]},
   {cat:"work", title:"Cemetery plot resurvey", short:"Precise GPS data collection, plus training staff on a new field protocol.",
    imgs:["cemetery-resurvey.jpg"],
-   body:"<p>I learned Bad Elf GPS hardware, wrote a standardized survey protocol and trained staff to use it with ArcGIS Field Maps. We collected and digitized precise grave plot locations and georeferenced historic cemetery maps against them.</p>",
+   body:"<p>I ran this digitization project end to end. I learned Bad Elf GPS hardware, wrote a standardized survey protocol, and trained managers and associates to use it with ArcGIS Field Maps. We collected precise grave plot locations, georeferenced historic cemetery maps against them, and tracked progress in dashboards.</p>",
    tags:["Field Maps","Training","Data collection"]},
   // Product Studio: fill in your team's project when you're ready
   {cat:"school", title:"Product Studio", short:"My Cornell Tech Product Studio project. Case study coming soon.", tile:"Product Studio",
    body:"<p>Case study coming soon.</p>", tags:["Cornell Tech"]},
-  {cat:"school", title:"Job-fit AI agent", short:"An AI agent that helps job seekers judge how well a role fits them.", tile:"Job-fit agent",
-   body:"<p>An AI agent I designed and iterated on during the JCTMBA program. It helps job seekers judge how well a role matches their background and goals.</p>", tags:["AI agents","Prompt design","Iteration"]},
-  {cat:"school", title:"GC assistant", short:"An AI assistant for general contractors.", tile:"GC assistant",
-   body:"<p>An AI assistant built for general contractors during the JCTMBA program.</p>", tags:["AI","Vertical SaaS"]},
+  {cat:"school", title:"Job-fit matching agent", short:"An AI agent that matches job seekers to roles that fit. Built in Designing & Building AI Solutions.", tile:"Job-fit agent",
+   body:"<p>Built in Cornell Tech's Designing &amp; Building AI Solutions course: an AI agent that helps job seekers judge how well a role matches their background and goals.</p>", tags:["AI agents","Prompt design","Iteration"]},
+  {cat:"school", title:"GC assistant", short:"An AI assistant for general contractors. Built in Designing & Building AI Solutions.", tile:"GC assistant",
+   body:"<p>Built in Cornell Tech's Designing &amp; Building AI Solutions course: an AI assistant for general contractors.</p>", tags:["AI","Vertical SaaS"]},
   {cat:"school", title:"Mise, an AI cooking coach", short:"A Claude Code plugin that coaches you through meal planning and cooking.", tile:"Mise",
    body:"<p>A Claude Code plugin I built for a course assignment: an AI cooking coach that helps with meal planning and cooking.</p>", tags:["Claude Code","Plugin","AI"]},
   {cat:"school", title:"Reorienting smart city metrics", short:"Published research on who gets left out of smart city investment, across five metros.",
@@ -525,8 +544,6 @@ const projects = [
    imgs:["sugarcane-map.jpg"],
    body:"<p>My undergraduate capstone looked at the rules for pre-harvest sugarcane burning in Florida's Everglades Agricultural Area. Burn protection zones are drawn by population density.</p><p>By modeling exposure buffers around schools and hospitals, I showed that lower-income, predominantly minority communities face much higher risk than wealthier areas with more protection.</p>",
    tags:["Spatial analysis","Policy","StoryMaps"]},
-  {cat:"personal", title:"Mapletics Scouting", short:"A location-based baseball recruiting platform I co-founded. Currently on pause.", tile:"Mapletics",
-   body:"<p>A recruiting platform that helps baseball scouts find players by location. I co-founded it and built it no-code on Bubble, with Stripe for payments. It's on pause for now.</p>", tags:["Co-founder","Bubble","Stripe","0 to 1"]},
   {cat:"personal", title:"OFF TOPIC", short:"Make plans. Go off topic. A planning app for friend groups.", tile:"OFF TOPIC",
    body:"<p>A mobile app for existing friend groups. It finds when everyone's free, picks a nearby café, restaurant or park, then gives each person a niche reading, trivia and conversation prompts so the hangout goes somewhere new.</p><p>I've built a high-fidelity prototype in Figma Make and a brand ideation doc.</p>", tags:["Figma","Product design","Consumer"]},
 ];
