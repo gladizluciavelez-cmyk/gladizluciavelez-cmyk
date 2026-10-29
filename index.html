@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gladiz Velez — Product & Analytics</title>
+<meta name="description" content="Gladiz Velez — Johnson Cornell Tech MBA candidate and former geospatial analyst, looking for product manager, product growth analyst and business analyst roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F8F5; --card:#FFFFFF; --ink:#1B1F3B; --ink-soft:#4A4F6A;
+    --cobalt:#2E4BFF; --marigold:#FFC93C; --coral:#FF7A8A; --line:#D9DCE3;
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Source Serif 4", Georgia, serif;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{overflow-x:clip;margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+  h1,h2,h3,h4,.btn,.chip,nav,.kicker{font-family:var(--display)}
+  h1,h2,h3{line-height:1.1;margin:0;letter-spacing:-.01em}
+  h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800}
+  h3{font-size:1.375rem;font-weight:600}
+  p{margin:0 0 1em;max-width:68ch}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+  .sec-head p{color:var(--ink-soft);margin:0;max-width:46ch}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .logo{font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+  .logo svg{width:22px;height:22px}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:.95rem}
+  .nav-links a{text-decoration:none;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.btn-primary{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;padding:12px 20px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);transition:transform .15s,box-shadow .15s,background .15s;cursor:pointer;background:none;color:var(--ink)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--cobalt)}
+  .btn-sm{padding:7px 14px;font-size:.9rem}
+  .btn svg{width:18px;height:18px}
+
+  /* hero */
+  .hero{padding:72px 0 88px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,6.2vw,4.75rem);font-weight:800;letter-spacing:-.025em}
+  .hero .lede{font-size:1.25rem;margin:24px 0 32px;color:var(--ink-soft);max-width:40ch}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .roles{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+  .roles span{font-family:var(--display);font-size:.9rem;padding:4px 12px;border:1.5px solid var(--line);border-radius:999px;background:var(--card)}
+
+  .mapcard{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:14px;box-shadow:8px 8px 0 var(--ink)}
+  .mapcard svg.map{width:100%;height:auto;display:block;border-radius:12px;background:#EEF3FF}
+  .route{stroke-dasharray:6 8;animation:draw 2.2s .3s ease-out both}
+  @keyframes draw{from{stroke-dashoffset:600;opacity:.2}to{stroke-dashoffset:0;opacity:1}}
+  .pin-label{font-family:var(--display);font-size:13px;font-weight:600;fill:var(--ink)}
+  .mapfoot{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-size:.85rem;color:var(--ink-soft);padding:10px 4px 0;gap:12px;flex-wrap:wrap}
+  .coords{font-variant-numeric:tabular-nums}
+  .headshot{position:absolute;width:112px;height:112px;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 2px var(--ink);object-fit:cover;right:6%;top:-28px;transition:transform .3s}
+  .mapcard:hover .headshot{transform:rotate(-6deg) scale(1.04)}
+  .sticker{position:absolute;font-family:var(--display);font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);background:var(--marigold);transform:rotate(-4deg)}
+  .sticker.s1{left:-18px;bottom:62px}
+  .sticker.s2{right:-14px;bottom:110px;background:var(--coral);transform:rotate(5deg)}
+
+  /* outcomes strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .strip div{padding:24px 20px;border-left:1px solid var(--line)}
+  .strip div:first-child{border-left:0}
+  .strip b{font-family:var(--display);font-size:1.75rem;font-weight:800;display:block;line-height:1.1}
+  .strip span{line-height:1.4;display:block;font-size:.95rem;color:var(--ink-soft)}
+
+  /* experience */
+  .timeline{position:relative;margin-left:8px;padding-left:36px;border-left:2px dashed var(--line)}
+  .job{position:relative;padding-bottom:44px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-46px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+  .job.now::before{background:var(--cobalt);border-color:var(--cobalt);box-shadow:0 0 0 6px color-mix(in srgb,var(--cobalt) 18%,transparent)}
+  .job .when{font-family:var(--display);font-size:.95rem;color:var(--ink-soft)}
+  .job h3{margin:2px 0 4px}
+  .job .org{font-style:italic;margin-bottom:10px;color:var(--ink-soft)}
+  .job ul{margin:0;padding-left:1.1em;max-width:70ch}
+  .job li{margin-bottom:6px}
+  .job li::marker{color:var(--cobalt)}
+
+  /* featured */
+  .feature{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:40px 0;border-top:1px solid var(--line)}
+  .feature:nth-of-type(even) .f-media{order:2}
+  .f-media{border-radius:16px;overflow:hidden;border:2px solid var(--ink);background:var(--card);aspect-ratio:16/10;position:relative}
+  .f-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .feature:hover .f-media img{transform:scale(1.04)}
+  .bignum{width:100%;height:100%;display:grid;place-items:center;background:repeating-linear-gradient(0deg,#fff 0 27px,#E6EAF7 27px 28px);text-align:center}
+  .bignum b{font-family:var(--display);font-size:clamp(3rem,8vw,5.5rem);font-weight:800;color:var(--cobalt);line-height:1}
+  .bignum span{font-family:var(--display);color:var(--ink-soft)}
+  .f-body h3{font-size:1.75rem;margin-bottom:6px}
+  .f-body .org{color:var(--ink-soft);font-style:italic;margin-bottom:18px}
+  .pbo{display:grid;gap:12px;margin-bottom:18px}
+  .pbo div{display:grid;grid-template-columns:84px 1fr;gap:12px}
+  .pbo dt{font-family:var(--display);font-weight:600;font-size:.95rem;padding-top:2px}
+  .pbo dd{margin:0}
+  .outcome{background:#EEF1FF;border-left:4px solid var(--cobalt);padding:12px 16px;border-radius:0 10px 10px 0;font-family:var(--display);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tags span{font-family:var(--display);font-size:.8rem;padding:3px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+
+  /* gallery */
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);font-size:.95rem;font-weight:600;cursor:pointer;transition:border-color .15s,background .15s}
+  .chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+  .sw{width:14px;height:14px;border-radius:3px;display:inline-block;border:1.5px solid var(--ink)}
+  .sw.work{background:var(--cobalt)} .sw.school{background:var(--marigold)} .sw.personal{background:var(--coral)}
+  .sw.all{background:conic-gradient(var(--cobalt) 0 33%,var(--marigold) 0 66%,var(--coral) 0)}
+  .chip[aria-pressed="true"] .sw{border-color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
+  .card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .card:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+  .card .thumb{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--paper)}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .card:hover .thumb img{transform:scale(1.06)}
+  .card .tile{width:100%;height:100%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.6rem;text-align:center;padding:16px;line-height:1.15}
+  .card .meta{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card .cat{display:flex;align-items:center;gap:6px;font-family:var(--display);font-size:.85rem;color:var(--ink-soft)}
+  .card h4{font-size:1.15rem;margin:0;line-height:1.25}
+  .card p{font-size:.95rem;color:var(--ink-soft);margin:0}
+  .card[hidden]{display:none}
+  .more{font-family:var(--display);font-weight:600;font-size:.9rem;color:var(--cobalt);margin-top:auto;padding-top:8px}
+
+  /* modal */
+  dialog{border:2px solid var(--ink);border-radius:18px;padding:0;max-width:760px;width:calc(100% - 32px);background:var(--card);color:var(--ink);box-shadow:10px 10px 0 var(--ink)}
+  dialog::backdrop{background:rgba(27,31,59,.55)}
+  dialog[open]{animation:pop .25s ease-out}
+  @keyframes pop{from{transform:translateY(16px) scale(.98);opacity:0}}
+  .m-imgs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;background:var(--paper)}
+  .m-imgs img{max-height:340px;width:auto;scroll-snap-align:start;flex:0 0 auto}
+  .m-imgs:empty{display:none}
+  .m-body{padding:24px 28px 28px}
+  .m-body h3{font-size:1.6rem;margin:6px 0 12px}
+  .m-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:#fff;font-size:1.3rem;cursor:pointer;font-family:var(--display);line-height:1}
+
+  /* talks */
+  .talks{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .talk{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+  .talk .yr{font-family:var(--display);font-weight:800;font-size:1.25rem}
+  .talk h4{font-size:1.1rem;margin:0 0 4px}
+  .talk p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+  .talk .kind{font-family:var(--display);font-size:.8rem;display:inline-block;padding:2px 10px;border-radius:999px;background:#EEF1FF;margin-bottom:6px}
+  .talk .kind.pub{background:#FFF3D1}
+
+  /* now */
+  .now-wrap{background:var(--ink);color:#fff;border-radius:24px;padding:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
+  .now-wrap h2{color:#fff}
+  .now-wrap .stamp{font-family:var(--display);display:inline-block;margin-top:16px;padding:6px 14px;border:2px dashed var(--marigold);color:var(--marigold);border-radius:8px;transform:rotate(-3deg)}
+  .now-list{list-style:none;margin:0;padding:0}
+  .now-list li{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .now-list li:last-child{border-bottom:0}
+  .now-list .ic{font-size:1.3rem}
+  .now-list b{font-family:var(--display);font-weight:600}
+  .now-list span{color:#C9CCE0}
+
+  /* hobbies */
+  .hobby{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
+  .polaroids{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .polaroid{background:#fff;padding:10px 10px 36px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(27,31,59,.12);transition:transform .25s;position:relative}
+  .polaroid:nth-child(1){transform:rotate(-3deg)} .polaroid:nth-child(2){transform:rotate(2.5deg) translateY(14px)}
+  .polaroid:nth-child(3){transform:rotate(1.5deg)} .polaroid:nth-child(4){transform:rotate(-2deg) translateY(10px)}
+  .polaroid:hover{transform:rotate(0) scale(1.05);z-index:2}
+  .polaroid .ph{aspect-ratio:1;background:repeating-linear-gradient(45deg,#FFF6DD 0 10px,#FFEFC2 10px 20px);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:.85rem;color:#8a6a10;padding:10px}
+  .polaroid img{aspect-ratio:1;object-fit:cover;width:100%}
+  .polaroid figcaption{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:var(--display);font-size:.85rem;color:var(--ink-soft)}
+  .side-hobbies{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .side-hobbies span{font-family:var(--display);padding:8px 14px;border-radius:12px;background:var(--card);border:1.5px solid var(--line);font-size:.95rem}
+
+  /* connect */
+  .connect{text-align:left;padding-bottom:64px}
+  .connect h2{font-size:clamp(2.4rem,7vw,5rem);max-width:14ch}
+  .connect .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  footer{border-top:1px solid var(--line);padding:24px 0;font-family:var(--display);font-size:.9rem;color:var(--ink-soft)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media (max-width:900px){
+    .hero .wrap,.feature,.now-wrap,.hobby{grid-template-columns:1fr}
+    .feature:nth-of-type(even) .f-media{order:0}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .talks{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .strip div:nth-child(3){border-left:0}
+    .strip div{border-top:1px solid var(--line)}
+    .nav-links a:not(.btn){display:none}
+    .now-wrap{padding:32px 24px}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    section{padding:64px 0}
+    .grid{grid-template-columns:1fr}
+    .sticker.s1{left:-6px} .sticker.s2{right:-6px}
+    .headshot{width:84px;height:84px;top:-20px}
+    .pbo div{grid-template-columns:1fr;gap:2px}
+    .talk{grid-template-columns:64px 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#2E4BFF" stroke="#1B1F3B" stroke-width="1.5"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>
+      Gladiz Velez
+    </a>
+    <div class="nav-links">
+      <a href="#work">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#talks">Talks</a>
+      <a href="#now">Now</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#connect">Connect</a>
+      <!-- Put your résumé PDF in assets/ with this exact file name -->
+      <a class="btn btn-sm btn-primary" href="assets/Gladiz_Velez_Resume.pdf" download>Résumé</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>I turn messy data into decisions people can see.</h1>
+      <p class="lede">I'm Gladiz, an MBA candidate at Johnson Cornell Tech and a former geospatial analyst. I've spent years building the dashboards, automations and maps that help teams find what matters and act on it.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="assets/Gladiz_Velez_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+          Download résumé
+        </a>
+        <a class="btn" href="#projects">See my projects</a>
+      </div>
+      <div class="roles" aria-label="Roles I'm looking for">
+        <span>Product manager</span><span>Product growth analyst</span><span>Business analyst</span>
+      </div>
+    </div>
+
+    <div class="mapcard" id="mapcard">
+      <svg class="map" viewBox="0 0 480 340" role="img" aria-label="A route map from Miami, Florida to Roosevelt Island, New York">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#D3DCF5" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="480" height="340" fill="url(#grid)"/>
+        <!-- soft "land" blobs -->
+        <path d="M250 20 C320 30 360 70 350 120 C340 170 300 190 290 230 C282 262 300 300 280 330 L120 340 C100 280 130 230 170 200 C210 170 200 120 210 80 C218 50 230 25 250 20Z" fill="#DDEBDD"/>
+        <path d="M300 230 C315 250 318 290 300 325" fill="none" stroke="#B9D3BA" stroke-width="2"/>
+        <!-- route -->
+        <path class="route" d="M286 300 C230 250 200 210 240 160 C270 120 330 110 342 62" fill="none" stroke="#1B1F3B" stroke-width="3" stroke-linecap="round"/>
+        <!-- stops -->
+        <g><circle cx="286" cy="300" r="9" fill="#FF7A8A" stroke="#1B1F3B" stroke-width="2.5"/><text class="pin-label" x="190" y="306">Miami, FL</text></g>
+        <g><circle cx="240" cy="160" r="6" fill="#FFC93C" stroke="#1B1F3B" stroke-width="2"/><text class="pin-label" x="110" y="165">Seminole THPO</text></g>
+        <g><circle cx="342" cy="62" r="10" fill="#2E4BFF" stroke="#1B1F3B" stroke-width="2.5"/><text class="pin-label" x="358" y="92">Roosevelt Island</text></g>
+      </svg>
+      <img class="headshot" src="assets/headshot.jpg" alt="Portrait of Gladiz Velez">
+      <span class="sticker s1">Forte Fellow</span>
+      <span class="sticker s2">Hablo español</span>
+      <div class="mapfoot">
+        <span>You are here</span>
+        <span class="coords" id="coords" aria-live="off">40.7554° N, 73.9560° W</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-label="Highlights">
+  <div class="wrap">
+    <div><b>4 hrs to 10 min</b><span>map production time after my Python tool</span></div>
+    <div><b>26,000+</b><span>artifact records cleaned and standardized</span></div>
+    <div><b>5 metros</b><span>analyzed in published smart-city equity research</span></div>
+    <div><b>4 talks</b><span>at Esri UC and Tribal GIS, 2024–2025</span></div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Work experience</h2>
+      <p>From fieldwork in the Everglades to an MBA on Roosevelt Island.</p>
+    </div>
+    <div class="timeline">
+      <article class="job now">
+        <div class="when">2026 – May 2027</div>
+        <h3>MBA candidate</h3>
+        <div class="org">Johnson Cornell Tech MBA, Roosevelt Island, NYC</div>
+        <ul>
+          <li>One-year, STEM-designated MBA built around product, data and tech.</li>
+          <li>Associate at Big Red Ventures, doing due diligence on early-stage startups.</li>
+          <li>Coursework in data analytics (A/B testing, regression), strategy, and programming for data analysis.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <!-- Add your exact dates, e.g. "2023 – 2026" -->
+        <div class="when">2+ years</div>
+        <h3>Geospatial Analyst</h3>
+        <div class="org">Seminole Tribe of Florida, Tribal Historic Preservation Office (Archaeometry Section)</div>
+        <ul>
+          <li>Built a Python automation pipeline that cut a 4-hour mapping process to 10 minutes; it was adopted across the office.</li>
+          <li>Launched real-time dashboards so field crews and managers could track progress in one place.</li>
+          <li>Cleaned and standardized 26,000+ artifact records for a new web-based site database.</li>
+          <li>Ran participatory mapping sessions with Tribal community members and co-published a book with original maps.</li>
+          <li>Trained staff on new field data collection tools and protocols.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="when">Side venture, on pause</div>
+        <h3>Co-founder</h3>
+        <div class="org">Mapletics Scouting</div>
+        <ul>
+          <li>Built a location-based baseball recruiting platform on Bubble, with Stripe payments.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="when">Finished in three years</div>
+        <h3>B.A. Ecosystem Science and Policy</h3>
+        <div class="org">University of Miami, minors in Geography and Sustainable Development</div>
+        <ul>
+          <li>Co-published research on equity metrics for smart cities.</li>
+          <li>Started a Dining Dollar Donation Drive that raised $1,400+ a year for a campus food pantry.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Featured work</h2>
+      <p>Three projects, each with the problem, what I built, and what changed.</p>
+    </div>
+
+    <article class="feature">
+      <div class="f-media"><img src="assets/tribal-gis-2024.jpg" alt="Gladiz presenting Modernizing GIS Workflows at Tribal GIS 2024" loading="lazy"></div>
+      <div class="f-body">
+        <h3>Automated map layout generator</h3>
+        <div class="org">Seminole Tribe of Florida THPO</div>
+        <dl class="pbo">
+          <div><dt>Problem</dt><dd>Every compliance map was laid out by hand. It was slow, and no two maps looked the same.</dd></div>
+          <div><dt>Built</dt><dd>A Python tool for ArcGIS Pro that generates standardized map layouts from templates.</dd></div>
+        </dl>
+        <div class="outcome">A 4-hour process now takes 10 minutes, and the whole office uses the tool. I presented it at Tribal GIS.</div>
+        <div class="tags"><span>Python</span><span>ArcPy</span><span>Process automation</span><span>Internal adoption</span></div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="f-media"><img style="object-fit:contain;background:#fff" src="assets/shovel-test-dashboard.jpg" alt="Shovel Test Tracker dashboard showing on- and off-reservation crew progress toward yearly goals" loading="lazy"></div>
+      <div class="f-body">
+        <h3>Fieldwork hub and shovel test tracker</h3>
+        <div class="org">Seminole Tribe of Florida THPO</div>
+        <dl class="pbo">
+          <div><dt>Problem</dt><dd>Managers couldn't see field progress until crews reported back, so goals slipped without anyone noticing.</dd></div>
+          <div><dt>Built</dt><dd>Live dashboards that pull field data as it's collected and track each crew against its yearly goal.</dd></div>
+        </dl>
+        <div class="outcome">Crews and managers now work from one live view of progress, so it's clear how far each crew is from its goal.</div>
+        <div class="tags"><span>ArcGIS Dashboards</span><span>Field Maps</span><span>KPI design</span><span>Stakeholder alignment</span></div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="f-media"><div class="bignum"><div><b>26,000+</b><br><span>artifact records, cleaned</span></div></div></div>
+      <div class="f-body">
+        <h3>Site file redesign and artifact catalog</h3>
+        <div class="org">Seminole Tribe of Florida THPO</div>
+        <dl class="pbo">
+          <div><dt>Problem</dt><dd>Decades of site data sat in a legacy database that was hard to search and hard to trust.</dd></div>
+          <div><dt>Built</dt><dd>Helped redesign it as a web-based GIS system, and led the cleanup of the artifact catalog that feeds it.</dd></div>
+        </dl>
+        <div class="outcome">26,000+ records standardized and spatially cleaned, ready for analysis in the new system.</div>
+        <div class="tags"><span>Data quality</span><span>Database migration</span><span>Web GIS</span></div>
+      </div>
+    </article>
+
+    <div class="sec-head" style="margin-top:80px">
+      <h2>More projects</h2>
+      <p>Filter by where the work happened. Click any card for the full story.</p>
+    </div>
+    <div class="legend" role="group" aria-label="Filter projects">
+      <button class="chip" data-filter="all" aria-pressed="true"><span class="sw all"></span>All</button>
+      <button class="chip" data-filter="work" aria-pressed="false"><span class="sw work"></span>Work</button>
+      <button class="chip" data-filter="school" aria-pressed="false"><span class="sw school"></span>School & Product Studio</button>
+      <button class="chip" data-filter="personal" aria-pressed="false"><span class="sw personal"></span>Personal</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- TALKS & PUBLICATIONS -->
+<section id="talks" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Presentations and publications</h2>
+      <p>Explaining technical work to people who'll use it is my favorite part.</p>
+    </div>
+    <div class="talks">
+      <div class="talk"><div class="yr">2025</div><div><span class="kind">Talk</span><h4>Tribal GIS: On-reservation permitting</h4><p>Co-presented the THPO's permitting process, including custom Python tools and web apps.</p></div></div>
+      <div class="talk"><div class="yr">2024</div><div><span class="kind">Talk</span><h4>Tribal GIS: Modernizing GIS workflows</h4><p>Live demos of Esri tools and Python automation for a room of tribal GIS teams.</p></div></div>
+      <div class="talk"><div class="yr">2024–25</div><div><span class="kind">Conference</span><h4>Esri User Conference, Native Nations Summit</h4><p>Facilitated collaboration between the Seminole Tribe and other Native nations.</p></div></div>
+      <div class="talk"><div class="yr">Book</div><div><span class="kind pub">Publication</span><h4>Tales of the Tamiami Trail</h4><p>Editor and map author. Built the book's final map from participatory mapping sessions.</p></div></div>
+      <div class="talk"><div class="yr">Paper</div><div><span class="kind pub">Publication</span><h4>Reorienting smart city metrics</h4><p>Co-authored equity research across five U.S. metros at the census-tract level.</p></div></div>
+      <div class="talk"><div class="yr">Story</div><div><span class="kind pub">StoryMap</span><h4>The Indian Removal Act, mapped</h4><p>Author of an interactive StoryMap verified with historians and Tribal members.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section id="now" style="padding-top:24px">
+  <div class="wrap">
+    <div class="now-wrap">
+      <div>
+        <h2>Now</h2>
+        <p style="color:#C9CCE0;margin-top:12px">What I'm up to this month.</p>
+        <!-- Update this date when you edit the list -->
+        <span class="stamp">Updated October 2026</span>
+      </div>
+      <ul class="now-list">
+        <li><span class="ic" aria-hidden="true">🎓</span><div><b>Fall semester at Cornell Tech.</b> <span>Product, data and strategy coursework, plus Product Studio.</span></div></li>
+        <li><span class="ic" aria-hidden="true">🔍</span><div><b>Due diligence with Big Red Ventures.</b> <span>Learning to read a startup the way an investor does.</span></div></li>
+        <li><span class="ic" aria-hidden="true">📱</span><div><b>Prototyping OFF TOPIC.</b> <span>A planning app that gets friend groups off the group chat and out the door.</span></div></li>
+        <li><span class="ic" aria-hidden="true">🌴</span><div><b>Planning a Miami trek for my class.</b> <span>Company visits across fintech, health tech and urban tech, spring 2027.</span></div></li>
+        <li><span class="ic" aria-hidden="true">💼</span><div><b>Recruiting.</b> <span>Product and analytics roles in NYC or Miami. Say hi!</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" style="padding-top:24px">
+  <div class="wrap hobby">
+    <div>
+      <h2>Off the clock</h2>
+      <!-- Replace [Business name] with your charcuterie business name -->
+      <p style="margin-top:16px">I run a small charcuterie board business, <b>[Business name]</b>. It's the same instincts as product work: know who's coming, plan the layout, and make sure there's something for everyone.</p>
+      <div class="side-hobbies">
+        <span>🧀 Building boards</span><span>☕ Daily espresso</span><span>🗺️ Making maps for fun</span><span>🍳 Cooking</span>
+      </div>
+    </div>
+    <!-- Swap each .ph div for <img src="assets/hobbies/board-1.jpg" alt="..."> -->
+    <div class="polaroids">
+      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-1.jpg</div><figcaption>Grazing table</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-2.jpg</div><figcaption>Date-night board</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-3.jpg</div><figcaption>Party spread</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><div class="ph">Add photo<br>assets/hobbies/board-4.jpg</div><figcaption>Behind the scenes</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect" class="connect">
+  <div class="wrap">
+    <h2>Let's find what matters in your data.</h2>
+    <p style="margin-top:20px;font-size:1.2rem;color:var(--ink-soft)">I'm looking for product manager, product growth analyst and business analyst roles starting summer 2027, in NYC or Miami.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="mailto:gladizluciavelez@gmail.com">Email me</a>
+      <!-- Replace # with your LinkedIn URL -->
+      <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="assets/Gladiz_Velez_Resume.pdf" download>Download résumé</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Gladiz Velez, 2026</span><span>Made in New York, with roots in Miami</span></div></footer>
+
+<dialog id="modal" aria-labelledby="m-title">
+  <button class="m-close" id="m-close" aria-label="Close">×</button>
+  <div class="m-imgs" id="m-imgs"></div>
+  <div class="m-body">
+    <div class="cat" id="m-cat" style="display:flex;align-items:center;gap:6px;font-family:var(--display);font-size:.9rem;color:var(--ink-soft)"></div>
+    <h3 id="m-title"></h3>
+    <div id="m-text"></div>
+    <div class="tags" id="m-tags"></div>
+  </div>
+</dialog>
+
+<script>
+const CAT = {work:"Work", school:"School & Product Studio", personal:"Personal"};
+const TILE = {work:"#DDE3FF", school:"#FFF0C2", personal:"#FFE0E4"};
+// Edit projects here. img: files in assets/. Leave img empty for a text tile.
+const projects = [
+  {cat:"work", title:"Tales of the Tamiami Trail", short:"Participatory mapping with Seminole and Miccosukee community members, turned into a published book.",
+   imgs:["tamiami-trail-map.jpg","participatory-mapping.jpg"],
+   body:"<p>I joined a research team documenting the Tamiami Trail through the voices of Seminole and Miccosukee community members. I helped run interviews and participatory mapping sessions, where people marked places that mattered to them.</p><p>I digitized those sessions into the book's final map (ArcGIS Pro and Illustrator) and contributed to editing and layout decisions.</p><p><b>Role:</b> Editor and map author.</p>",
+   tags:["User interviews","Participatory mapping","Cartography","Editing"]},
+  {cat:"work", title:"The Indian Removal Act, mapped", short:"An interactive StoryMap showing the scale of Seminole removal and its lasting effects.",
+   imgs:["removal-trail.jpg","storymap-removed.jpg","storymap-spanish-florida.jpg"],
+   body:"<p>An interactive StoryMap combining historical maps, policy context and migration routes to show how the Seminole were forced from their ancestral lands in the Southeast to territory west of the Mississippi.</p><p>I designed the narrative structure and the maps, and checked their historical accuracy with historians and Tribal members.</p><p><b>Role:</b> Author.</p>",
+   tags:["Storytelling","ArcGIS StoryMaps","Information design"]},
+  {cat:"work", title:"Cemetery plot resurvey", short:"Precise GPS data collection, plus training staff on a new field protocol.",
+   imgs:["cemetery-resurvey.jpg"],
+   body:"<p>I learned Bad Elf GPS hardware, wrote a standardized survey protocol and trained staff to use it with ArcGIS Field Maps. We collected and digitized precise grave plot locations and georeferenced historic cemetery maps against them.</p>",
+   tags:["Field Maps","Training","Data collection"]},
+  // Product Studio: fill in your team's project when you're ready
+  {cat:"school", title:"Product Studio", short:"My Cornell Tech Product Studio project. Case study coming soon.", tile:"Product Studio",
+   body:"<p>Case study coming soon.</p>", tags:["Cornell Tech"]},
+  {cat:"school", title:"Job-fit AI agent", short:"An AI agent that helps job seekers judge how well a role fits them.", tile:"Job-fit agent",
+   body:"<p>An AI agent I designed and iterated on during the JCTMBA program. It helps job seekers judge how well a role matches their background and goals.</p>", tags:["AI agents","Prompt design","Iteration"]},
+  {cat:"school", title:"GC assistant", short:"An AI assistant for general contractors.", tile:"GC assistant",
+   body:"<p>An AI assistant built for general contractors during the JCTMBA program.</p>", tags:["AI","Vertical SaaS"]},
+  {cat:"school", title:"Mise, an AI cooking coach", short:"A Claude Code plugin that coaches you through meal planning and cooking.", tile:"Mise",
+   body:"<p>A Claude Code plugin I built for a course assignment: an AI cooking coach that helps with meal planning and cooking.</p>", tags:["Claude Code","Plugin","AI"]},
+  {cat:"school", title:"Reorienting smart city metrics", short:"Published research on who gets left out of smart city investment, across five metros.",
+   imgs:["smart-city-nyc.jpg"],
+   body:"<p>We built equity metrics for smart city planning using public socioeconomic, transit and digital-divide data for San Jose, New York, Miami, Seattle and Denver at the census-tract level.</p><p>We standardized candidate indicators, reduced them with principal component analysis, and mapped the results. Inequities varied by city and by domain, which pointed to the communities least likely to benefit from current investments.</p>",
+   tags:["PCA","SPSS","ArcGIS Pro","Published research"]},
+  {cat:"school", title:"Everglades sugarcane burning", short:"Capstone showing how burn rules leave lower-income communities less protected.",
+   imgs:["sugarcane-map.jpg"],
+   body:"<p>My undergraduate capstone looked at the rules for pre-harvest sugarcane burning in Florida's Everglades Agricultural Area. Burn protection zones are drawn by population density.</p><p>By modeling exposure buffers around schools and hospitals, I showed that lower-income, predominantly minority communities face much higher risk than wealthier areas with more protection.</p>",
+   tags:["Spatial analysis","Policy","StoryMaps"]},
+  {cat:"personal", title:"Mapletics Scouting", short:"A location-based baseball recruiting platform I co-founded. Currently on pause.", tile:"Mapletics",
+   body:"<p>A recruiting platform that helps baseball scouts find players by location. I co-founded it and built it no-code on Bubble, with Stripe for payments. It's on pause for now.</p>", tags:["Co-founder","Bubble","Stripe","0 to 1"]},
+  {cat:"personal", title:"OFF TOPIC", short:"Make plans. Go off topic. A planning app for friend groups.", tile:"OFF TOPIC",
+   body:"<p>A mobile app for existing friend groups. It finds when everyone's free, picks a nearby café, restaurant or park, then gives each person a niche reading, trivia and conversation prompts so the hangout goes somewhere new.</p><p>I've built a high-fidelity prototype in Figma Make and a brand ideation doc.</p>", tags:["Figma","Product design","Consumer"]},
+];
+
+const grid = document.getElementById('grid');
+projects.forEach((p,i)=>{
+  const b = document.createElement('button');
+  b.className='card'; b.dataset.cat=p.cat; b.dataset.i=i;
+  b.setAttribute('aria-label', p.title + ', open details');
+  const thumb = p.imgs ? `<img src="assets/${p.imgs[0]}" alt="" loading="lazy">`
+                       : `<div class="tile" style="background:${TILE[p.cat]}">${p.tile}</div>`;
+  b.innerHTML = `<div class="thumb">${thumb}</div><div class="meta"><span class="cat"><span class="sw ${p.cat}"></span>${CAT[p.cat]}</span><h4>${p.title}</h4><p>${p.short}</p><span class="more">Read more</span></div>`;
+  b.addEventListener('click',()=>openModal(i));
+  grid.appendChild(b);
+});
+
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed','false'));
+  c.setAttribute('aria-pressed','true');
+  const f=c.dataset.filter;
+  grid.querySelectorAll('.card').forEach(card=>card.hidden = !(f==='all'||card.dataset.cat===f));
+}));
+
+const modal=document.getElementById('modal');
+function openModal(i){
+  const p=projects[i];
+  document.getElementById('m-imgs').innerHTML=(p.imgs||[]).map(s=>`<img src="assets/${s}" alt="${p.title}">`).join('');
+  document.getElementById('m-cat').innerHTML=`<span class="sw ${p.cat}"></span>${CAT[p.cat]}`;
+  document.getElementById('m-title').textContent=p.title;
+  document.getElementById('m-text').innerHTML=p.body;
+  document.getElementById('m-tags').innerHTML=(p.tags||[]).map(t=>`<span>${t}</span>`).join('');
+  modal.showModal();
+}
+document.getElementById('m-close').onclick=()=>modal.close();
+modal.addEventListener('click',e=>{ if(e.target===modal) modal.close(); });
+
+// Hero: cursor position becomes coordinates around Roosevelt Island
+const card=document.getElementById('mapcard'), coords=document.getElementById('coords');
+const fmt=(lat,lon)=>`${lat.toFixed(4)}° N, ${Math.abs(lon).toFixed(4)}° W`;
+card.addEventListener('mousemove',e=>{
+  const r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+  coords.textContent=fmt(25.76+(1-y)*15.0, -80.19+x*6.23); // Miami (bottom left) to NYC (top right)
+});
+card.addEventListener('mouseleave',()=>coords.textContent=fmt(40.7554,-73.9560));
+</script>
+</body>
+</html>
