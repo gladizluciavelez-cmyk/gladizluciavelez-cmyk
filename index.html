@@ -21,6 +21,11 @@
   body{overflow-x:clip;margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
   img{max-width:100%;display:block}
   a{color:inherit}
+  /* cheese-slice cursor; the clickable version has a bite taken out */
+  @media (hover:hover) and (pointer:fine){
+    html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M3%203%20L29%2013%20L13%2029%20Z%22%20fill%3D%22%23FFC93C%22%20stroke%3D%22%231B1F3B%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M29%2013%20L13%2029%22%20stroke%3D%22%23E8A817%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2212%22%20r%3D%222.6%22%20fill%3D%22%23E8A817%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2219%22%20r%3D%222%22%20fill%3D%22%23E8A817%22/%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2219%22%20r%3D%221.5%22%20fill%3D%22%23E8A817%22/%3E%3C/svg%3E") 3 3, auto}
+    a,button,.btn,.chip,.card,.m-close,label{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M3%203%20L29%2013%20L13%2029%20Z%22%20fill%3D%22%23FFC93C%22%20stroke%3D%22%231B1F3B%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M29%2013%20L13%2029%22%20stroke%3D%22%23E8A817%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2212%22%20r%3D%222.6%22%20fill%3D%22%23E8A817%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2219%22%20r%3D%222%22%20fill%3D%22%23E8A817%22/%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2219%22%20r%3D%221.5%22%20fill%3D%22%23E8A817%22/%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2213%22%20r%3D%224.5%22%20fill%3D%22white%22%20stroke%3D%22%231B1F3B%22%20stroke-width%3D%220%22/%3E%3C/svg%3E") 3 3, pointer !important}
+  }
   :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:4px}
   h1,h2,h3,h4,.btn,.chip,nav,.kicker{font-family:var(--display)}
   h1,h2,h3{line-height:1.1;margin:0;letter-spacing:-.01em}
@@ -171,7 +176,10 @@
   .polaroids{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .polaroid{background:#fff;padding:10px 10px 36px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(27,31,59,.12);transition:transform .25s;position:relative}
   .polaroid:nth-child(1){transform:rotate(-3deg)} .polaroid:nth-child(2){transform:rotate(2.5deg) translateY(14px)}
-  .polaroid:nth-child(3){transform:rotate(1.5deg);grid-column:1/-1;justify-self:center;width:58%}
+  .polaroids.trio .polaroid:nth-child(3){transform:rotate(1.5deg);grid-column:1/-1;justify-self:center;width:58%}
+  .hobby+.hobby{margin-top:72px}
+  .hobby.flip>.polaroids{order:-1}
+  @media (max-width:900px){.hobby.flip>.polaroids{order:0}}
   .polaroid:hover{transform:rotate(0) scale(1.05);z-index:2}
   .polaroid .ph{aspect-ratio:1;background:repeating-linear-gradient(45deg,#FFF6DD 0 10px,#FFEFC2 10px 20px);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:.85rem;color:#8a6a10;padding:10px}
   .polaroid img{aspect-ratio:1;object-fit:cover;width:100%}
@@ -463,13 +471,24 @@
       <p style="margin-top:16px">I run a small charcuterie board business, <a href="https://www.instagram.com/gachiandcharcuterieboards" target="_blank" rel="noopener"><b>Gachi and Charcuterie Boards</b></a>. It's the same instincts as product work: know who's coming, plan the layout, and make sure there's something for everyone.</p>
       <p><a class="btn btn-sm" href="https://www.instagram.com/gachiandcharcuterieboards" target="_blank" rel="noopener">See the boards on Instagram</a></p>
       <div class="side-hobbies">
-        <span>🧀 Building boards</span><span>☕ Daily espresso</span><span>🗺️ Making maps for fun</span><span>🍳 Cooking</span>
+        <span>🧀 Building boards</span><span>☕ Daily espresso</span><span>🗺️ Making maps for fun</span><span>🍳 Cooking</span><span>🎨 Painting and art fairs</span><span>✈️ Travel</span>
       </div>
     </div>
-    <div class="polaroids">
+    <div class="polaroids trio">
       <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-1.jpg" alt="Charcuterie board with cheeses, cured meats, nuts, fruit and two bottles of Malbec" loading="lazy"><figcaption>Malbec night</figcaption></figure>
       <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-2.jpg" alt="Long holiday grazing board with brie, salami, crackers and jam on a red-striped table" loading="lazy"><figcaption>Holiday party</figcaption></figure>
       <figure class="polaroid" style="margin:0"><img src="assets/hobbies/board-3.jpg" alt="Two long charcuterie boards set out on a table at an outdoor event" loading="lazy"><figcaption>Garden party</figcaption></figure>
+    </div>
+  </div>
+  <div class="wrap hobby flip">
+    <div>
+      <h3 style="font-size:1.75rem">Art and travel</h3>
+      <p style="margin-top:12px">I painted a lot growing up, and I've loved art ever since. These days I'm more often looking than painting: Art Basel in Miami Beach is one of my favorite weeks of the year.</p>
+      <p>I also love to travel. Most recently that meant Morocco.</p>
+    </div>
+    <div class="polaroids">
+      <figure class="polaroid" style="margin:0"><img src="assets/hobbies/art-basel.jpg" alt="A colorful striped op-art painting on a white gallery wall at Art Basel Miami Beach" loading="lazy"><figcaption>Art Basel, Miami Beach</figcaption></figure>
+      <figure class="polaroid" style="margin:0"><img src="assets/hobbies/morocco.jpg" alt="Gladiz smiling on a sunny rooftop terrace in Morocco with a minaret behind her" loading="lazy" style="object-position:60% 40%"><figcaption>Morocco</figcaption></figure>
     </div>
   </div>
 </section>
