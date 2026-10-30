@@ -9,3 +9,4 @@ One-page portfolio site. Open `index.html` in a browser; no build step.
 
 ## Publish with GitHub Pages
 Settings → Pages → Deploy from branch → `main` / root.
+# gladizluciavelez-cmyk
