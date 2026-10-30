@@ -1,14 +1,11 @@
 # Gladiz Velez — portfolio
 
-Two-page static site, no build step:
-- `index.html` — home (experience, 3 featured projects, publications, hobbies, contact)
-- `projects.html` — all projects, grouped by Seminole Tribe / Startup / Cornell Tech / University of Miami
-- `styles.css` — shared styles; `site.js` — the dot + cheese cursor
+One-page portfolio site. Open `index.html` in a browser; no build step.
 
-## Editing
-- Résumé: replace `assets/Gladiz_Velez_Resume.pdf`
-- Add a project: copy an `<article class="proj">` block in `projects.html`
-- Feature a different project: edit the three `.pcard` links in `index.html` (they point to `projects.html#id`)
+## To finish
+- Résumé lives at `assets/Gladiz_Velez_Resume.pdf` (replace it to update)
+- Edit projects in the `projects` list near the bottom of `index.html`
+- Update the Now section each month
 
 ## Publish with GitHub Pages
 Settings → Pages → Deploy from branch → `main` / root.
