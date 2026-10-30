@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gladiz Velez | Product & Analytics</title>
 <meta name="description" content="Gladiz Velez, Johnson Cornell Tech MBA candidate and former geospatial analyst, looking for product manager, product growth analyst and business analyst roles.">
+<meta property="og:title" content="Gladiz Velez | Product & Analytics">
+<meta property="og:description" content="MBA candidate at Johnson Cornell Tech and former geospatial analyst. I turn messy data into tools teams actually use.">
+<meta property="og:type" content="website">
+<!-- After publishing, change this to the full address, e.g. https://USERNAME.github.io/portfolio/assets/preview.jpg -->
+<meta property="og:image" content="assets/preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z' fill='%232E4BFF'/%3E%3Ccircle cx='12' cy='9' r='2.6' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
@@ -113,7 +120,7 @@
   .pbo div{display:grid;grid-template-columns:84px 1fr;gap:16px}
   .pbo dt{font-weight:600;font-size:.92rem;padding-top:1px}
   .pbo dd{margin:0;color:var(--ink-soft);max-width:60ch}
-  .pbo div:last-child dd{color:var(--ink);font-weight:500}
+  .pbo .out dd{color:var(--ink);font-weight:500}
   .f-side{display:flex;flex-direction:column;gap:18px;padding:30px 26px;background:linear-gradient(160deg,#EEF2FF,#E3F2EC);border-left:1px solid var(--line)}
   .f-side:not(:has(img)){justify-content:center}
   .f-side.rose{background:linear-gradient(160deg,#FFF0F2,#FFE3E8)}
@@ -417,16 +424,17 @@ const P={
      built:"A Python geoprocessing tool for ArcGIS Pro that generates five standard layouts from templates. I trained senior managers to use it.",
      outcome:"Saved 1,400+ staff hours a year, adopted department-wide, and presented at Tribal GIS.",
      tags:["Python","ArcGIS Pro","Process automation"]},
-    {title:"Mapletics Scouting", ctx:"Co-founder (one of two), sports tech startup, Apr 2025 – Jun 2026", tone:"rose",
+    {title:"Mapletics Scouting", ctx:"Co-founder (one of two), bootstrapped sports tech startup, Apr 2025 – Jun 2026", tone:"rose",
      metric:"50+ users", metricLabel:"and 20+ scouts",
      problem:"College scouts needed a way to find prospects by where they play and compete, not just by stats.",
-     built:"Researched the recruiting process, designed the product, and shipped a no-code MVP where scouts search by proximity, regional density and event date.",
-     outcome:"Went from concept to a paid MVP on Bubble and Stripe.",
+     built:"Researched the recruiting process, designed the product, and shipped a no-code MVP in 2–3 months where scouts search by proximity, regional density and event date.",
+     outcome:"Went from concept to a paid MVP on Bubble and Stripe, fully bootstrapped. Paused to focus on my MBA.",
+     learned:"How to bootstrap, how to take a product to market for one specific customer segment, and how to build distribution without a budget.",
      tags:["0 to 1","User research","Bubble","Stripe"]},
     {title:"Site file redesign and artifact data", ctx:"Seminole Tribe of Florida THPO, 1 year",
      metric:"26,000+", metricLabel:"records cleaned",
      problem:"Site and artifact records lived in a legacy system that was hard to search and hard to trust.",
-     built:"Redesigned the intake-to-editing workflow (Survey123, branch-versioned geodatabase, Experience Builder app), cleaned the catalog, defined metrics, and built dashboards.",
+     built:"Redesigned how records are entered and edited, with a new digital intake form, a central database and a web app. Then I cleaned the catalog, defined metrics, and built dashboards.",
      outcome:"Leadership used the dashboards to review 20+ years of data.",
      tags:["Data quality","Schema design","Dashboards"]}
   ],
@@ -461,17 +469,17 @@ const P={
      short:"A platform that helps NYC co-op boards plan the energy upgrades they need to comply with Local Law 97.",
      body:"<p>Under Local Law 97, New York City's building emissions law, co-op buildings need energy upgrades to stay compliant. ShareSense helps co-op boards plan which upgrades to make and when. Our team ran 20 user interviews to shape the product.</p>",
      tags:["Climate tech","Proptech","User research"]},
-    {title:"Job-fit matching agent", ctx:"Designing & Building AI Solutions", fact:["AI","agent"], tone:"warm",
-     short:"An AI agent that helps job seekers judge how well a role fits their background and goals.",
-     body:"<p>An AI agent that compares a job seeker's background and goals with a role and explains how well they match.</p>",
-     tags:["AI agents","Hiring"]},
-    {title:"Mise, an AI cooking coach", ctx:"Course project", fact:["Claude Code","plugin"], tone:"warm",
-     short:"A plugin that coaches you through meal planning and cooking.",
-     body:"<p>A Claude Code plugin that acts as a cooking coach, helping with meal planning and cooking.</p>",
-     tags:["AI","Plugin"]}
+    {title:"Job-fit matching agent", ctx:"Designing & Building AI Solutions", fact:["Fit score","+ gap plan"], tone:"warm",
+     short:"Paste a job post; get a cited fit score, the gaps that matter, and a concrete plan to close each one.",
+     body:"<p><b>In:</b> a job listing, pasted or as a link. The agent loads my resume and Cornell Tech curriculum automatically every run.</p><p><b>Out:</b> one structured brief in five parts:</p><ol style='color:var(--ink-soft);padding-left:1.2em;margin:0 0 1em'><li>Company and role summary, sourced from the web with citations.</li><li>A weighted fit score, with every requirement rated Have, Partial or Gap and backed by resume evidence.</li><li>Gaps, split into must-have and nice-to-have, each labeled as a knowledge gap or an experience gap.</li><li>Which gaps my MBA closes, and which it doesn't.</li><li>A gap-closing plan matched to the gap type: an internship or studio project for experience gaps, a class or course for knowledge gaps, never a certificate for an experience gap.</li></ol><p>It then offers to save the brief, so they build up across a job search.</p>",
+     tags:["AI agents","Structured output","Hiring"]},
+    {title:"Mise, an AI cooking coach", ctx:"Course project, Claude Code plugin", fact:["Safety in code","allergens + cook temps"], tone:"warm",
+     short:"Turns what's in your fridge and what you're craving into a safe, ready-to-cook plan, and a grocery list of only what's missing.",
+     body:"<p>A cooking coach for people who don't love cooking: air-fryer-first, sauce-forward, quick recipes.</p><ul style='color:var(--ink-soft);padding-left:1.2em;margin:0 0 1em'><li><b>One agent per meal.</b> Each meal gets its own agent, which picks a recipe based on your pantry, your craving and your restrictions.</li><li><b>One grocery list.</b> A reconciler pools every recipe's ingredients and subtracts your pantry once, so shared items count once and you only buy what's missing.</li><li><b>Safety enforced in code.</b> Two scripts check the work so the model isn't policing itself: one catches hidden allergens (soy blocks soy sauce, egg blocks mayo), the other checks cooking temperatures against USDA guidelines.</li></ul><p>Those safety checks are the differentiator. A chatbot can suggest recipes; few tools guarantee a soy-allergic user never sees soy sauce.</p>",
+     tags:["Multi-agent","Python","Guardrails"]}
   ],
   miami:[
-    {title:"Reorienting Smart City Metrics", ctx:"Published and cited · Lead author", imgs:["smart-city-nyc.jpg"],
+    {title:"Reorienting Smart City Metrics", ctx:"Published and cited, lead author", imgs:["smart-city-nyc.jpg"],
      short:"Equity metrics for smart-city planning across five U.S. metros, at the census-tract level.",
      body:"<p>Using socioeconomic, transit and digital-divide data for San Jose, New York, Miami, Seattle and Denver, we built a PCA-based disparity index and mapped it to show which communities were least likely to benefit from current smart-city investment. Supported by the College of Arts &amp; Sciences Summer Research Program.</p>"+link(L.paper,"Read the paper"),
      tags:["PCA","SPSS","ArcGIS Pro","Published research"]},
@@ -496,7 +504,8 @@ P.featured.forEach(p=>{
       <dl class="pbo">
         <div><dt>Problem</dt><dd>${p.problem}</dd></div>
         <div><dt>Built</dt><dd>${p.built}</dd></div>
-        <div><dt>Outcome</dt><dd>${p.outcome}</dd></div>
+        <div class="out"><dt>Outcome</dt><dd>${p.outcome}</dd></div>
+        ${p.learned?`<div><dt>Learned</dt><dd>${p.learned}</dd></div>`:''}
       </dl>
       <div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
     </div>
