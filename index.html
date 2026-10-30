@@ -306,7 +306,7 @@
       </article>
       <article class="job">
         <div class="job-top"><h3>Co-founder, Mapletics Scouting</h3><span class="when">Apr 2025 – Jun 2026</span></div>
-        <div class="org">Sports tech startup, one of two co-founders</div>
+        <div class="org">Sports tech startup</div>
         <ul>
           <li>Designed and shipped a location-based recruiting MVP on Bubble and Stripe; onboarded 20+ scouts and 50+ users.</li>
         </ul>
@@ -392,7 +392,7 @@ const P={
      built:"A Python geoprocessing tool for ArcGIS Pro that generates five standard layouts from templates. I trained senior managers to use it.",
      outcome:"Adopted organization-wide and presented at Tribal GIS.",
      tags:["Python","ArcGIS Pro","Process automation"]},
-    {title:"Mapletics Scouting", ctx:"Co-founder, Apr 2025 – Jun 2026", tone:"rose",
+    {title:"Mapletics Scouting", ctx:"Co-founder (one of two), sports tech startup, Apr 2025 – Jun 2026", tone:"rose",
      metric:"50+ users", metricLabel:"and 20+ scouts",
      problem:"College scouts needed a way to find prospects by where they play and compete, not just by stats.",
      built:"Researched the recruiting process, designed the product, and shipped a no-code MVP where scouts search by proximity, regional density and event date.",
@@ -406,18 +406,18 @@ const P={
      tags:["Data quality","Schema design","Dashboards"]}
   ],
   work:[
-    {title:"Fieldwork hub and shovel test tracker", ctx:"3 months", imgs:["shovel-test-dashboard.jpg"],
-     short:"One web app for field tools and resources, with live tracking of each crew against its yearly goal.",
-     body:"<p>Field staff needed one place to reach their GIS tools, and managers needed to see progress without waiting for reports. I built a central Experience Builder app combining dashboards, maps and resource links. The shovel test tracker uses SQL query layers to categorize tests and Arcade expressions to show crews how far they are from their goals.</p>",
+    {title:"Fieldwork hub and crew progress tracker", ctx:"3 months", imgs:["shovel-test-dashboard.jpg"],
+     short:"One web app for field teams' tools, with live tracking of each crew against its yearly goal.",
+     body:"<p>Field staff needed one place to reach their GIS tools, and managers needed to see progress without waiting for reports. I built a central Experience Builder app combining dashboards, maps and resource links. The progress tracker uses SQL to categorize each crew's excavation tests and calculated fields to show how far they are from their yearly goals.</p>",
      tags:["Experience Builder","SQL query layers","Arcade","KPI tracking"]},
-    {title:"Major fieldwork projects dashboard", ctx:"2 months", fact:["Leadership","dashboard"],
-     short:"A dashboard that shows leadership the progress and findings of major fieldwork projects.",
-     body:"<p>Leadership needed to track progress on major fieldwork projects. I built a dashboard with Arcade expressions that calculate progress, percent complete and the status of findings on the fly. It supports departmental permitting and inter-agency projects.</p>",
+    {title:"Fieldwork projects KPI dashboard", ctx:"2 months", fact:["Live KPIs","progress, % complete, findings"],
+     short:"Defined and automated KPIs so leadership could track progress and findings across major fieldwork projects.",
+     body:"<p>Leadership had no single view of how major fieldwork projects were going. I defined the KPIs that mattered (progress, percent complete and status of findings) and wrote Arcade expressions that calculate them automatically, so the dashboard stays current without manual updates. It supports departmental permitting and inter-agency projects.</p>",
      tags:["ArcGIS Dashboards","Arcade","Stakeholder reporting"]},
-    {title:"Cemetery plot resurvey", ctx:"End-to-end project lead", fact:["Field data","system"],
-     short:"Ran a cemetery digitization project end to end, from survey protocol to staff training to progress dashboards.",
-     body:"<p>I wrote a standardized survey protocol, trained managers and associates to collect precise plot locations with Bad Elf GPS and Field Maps smart forms, georeferenced historic cemetery maps, and built dashboards to track progress.</p>",
-     tags:["Survey123","Field Maps","Training","Project management"]},
+    {title:"Cemetery records digitization", ctx:"Project lead, end to end", fact:["Paper → digital","led end to end"],
+     short:"Replaced paper cemetery maps with precise digital records: wrote the process, trained staff, and tracked progress.",
+     body:"<p>The cemetery's records lived on old paper maps. I led the project to turn them into accurate digital records: I wrote a standard step-by-step process for collecting each plot's location with high-precision GPS, trained managers and staff to follow it, lined the historic maps up with the new data, and built dashboards so everyone could see progress.</p>",
+     tags:["Project management","Process design","Training","Digitization"]},
     {title:"Tales of the Tamiami Trail", ctx:"Published book · Editor and map author", imgs:["tamiami-trail-map.jpg","participatory-mapping.jpg"],
      short:"Participatory mapping with Seminole and Miccosukee community members, turned into a published book.",
      body:"<p>I helped run interviews and participatory mapping sessions where community members marked places that mattered to them, then digitized those sessions into the book's final map (ArcGIS Pro and Illustrator). I also contributed to editing and layout.</p>"+link(L.book,"About the book"),
