@@ -103,6 +103,24 @@
   .featured .card h3{font-size:1.3rem}
   .featured .media{aspect-ratio:16/10}
 
+  /* featured: text-led case-study cards */
+  .fcards{display:grid;gap:24px}
+  .fcard{display:grid;grid-template-columns:1fr 300px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .f-main{padding:30px 34px}
+  .f-ctx{font-size:.88rem;color:var(--ink-faint);margin-bottom:4px}
+  .fcard h3{font-size:1.45rem;font-weight:700;letter-spacing:-.02em;margin-bottom:18px}
+  .pbo{display:grid;gap:12px;margin:0 0 18px}
+  .pbo div{display:grid;grid-template-columns:84px 1fr;gap:16px}
+  .pbo dt{font-weight:600;font-size:.92rem;padding-top:1px}
+  .pbo dd{margin:0;color:var(--ink-soft);max-width:60ch}
+  .pbo div:last-child dd{color:var(--ink);font-weight:500}
+  .f-side{display:flex;flex-direction:column;gap:18px;padding:30px 26px;background:linear-gradient(160deg,#EEF2FF,#E3F2EC);border-left:1px solid var(--line)}
+  .f-side:not(:has(img)){justify-content:center}
+  .f-side.rose{background:linear-gradient(160deg,#FFF0F2,#FFE3E8)}
+  .f-metric b{display:block;font-family:var(--display);font-size:2.3rem;font-weight:700;letter-spacing:-.035em;line-height:1.05}
+  .f-metric span{font-size:.9rem;color:var(--ink-soft)}
+  .f-side img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;box-shadow:0 8px 20px -10px rgba(27,31,59,.35);margin-top:auto}
+
   /* grouped projects */
   .group{margin-top:64px}
   .group:first-of-type{margin-top:0}
@@ -159,6 +177,9 @@
   @media (max-width:900px){
     .hero .wrap{grid-template-columns:1fr}
     .cards{grid-template-columns:repeat(2,1fr)}
+    .fcard{grid-template-columns:1fr}
+    .f-side{border-left:0;border-top:1px solid var(--line);flex-direction:row;align-items:center;justify-content:space-between}
+    .f-side img{width:160px;margin-top:0}
     .photos{grid-template-columns:repeat(3,1fr)}
     .nav-links a:not(.btn){display:none}
   }
@@ -168,6 +189,10 @@
     .cards{grid-template-columns:1fr}
     .photos{grid-template-columns:repeat(2,1fr)}
     .headshot{width:84px;height:84px;top:-20px}
+    .f-main{padding:24px 22px}
+    .pbo div{grid-template-columns:1fr;gap:2px}
+    .f-side{padding:20px 22px}
+    .f-side img{width:120px}
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
@@ -231,7 +256,7 @@
       <h2>Featured work</h2>
       <p>Find the bottleneck, build the fix, and get people to use it.</p>
     </div>
-    <div class="band featured"><div class="cards" data-list="featured"></div></div>
+    <div class="band"><div class="fcards" id="featured"></div></div>
   </div>
 </section>
 
@@ -361,18 +386,24 @@ const L={
 const link=(u,t)=>`<p><a class="ext" href="${u}" target="_blank" rel="noopener">${t}</a></p>`;
 const P={
   featured:[
-    {title:"Automated map layout generator", ctx:"Seminole Tribe of Florida · 3 months", imgs:["tribal-gis-2024.jpg"],
-     short:"A Python tool for ArcGIS Pro that replaced hand-made compliance maps across the office.", out:"4 hours → 10 minutes per map",
-     body:"<p><b>Problem.</b> Every compliance map was laid out by hand. It took hours, and no two maps looked the same.</p><p><b>Built.</b> A custom geoprocessing tool that generates five standard map layouts using spatial queries, intersects and dynamic zoom, packaged in a custom ArcGIS Pro project template. I trained senior managers on it.</p><div class='outcome'>Map production went from 4 hours to about 10 minutes, and the tool was adopted organization-wide. I presented it at Tribal GIS.</div>",
-     tags:["Python","ArcPy","ArcGIS Pro","Process automation"]},
-    {title:"Mapletics Scouting", ctx:"Co-founder · Apr 2025 – Jun 2026", fact:["50+ users","and 20+ scouts on the MVP"], tone:"rose",
-     short:"A sports tech startup: a recruiting platform that lets college scouts search prospects by location.", out:"Concept to paid MVP, 50+ users",
-     body:"<p><b>Problem.</b> College scouts needed a way to find prospects by where they play and compete, not just by stats.</p><p><b>Built.</b> I researched the recruiting process, wrote the product concept, designed the platform, and shipped a no-code MVP where scouts search by proximity, regional density and event date.</p><div class='outcome'>Took it from concept to a paid MVP on Bubble and Stripe, and onboarded 20+ scouts and 50+ users.</div>",
+    {title:"Automated map layout generator", ctx:"Seminole Tribe of Florida, 3 months", imgs:["tribal-gis-2024.jpg"],
+     metric:"4 hrs → 10 min", metricLabel:"per map",
+     problem:"Every compliance map was laid out by hand. It took hours, and no two maps looked the same.",
+     built:"A Python geoprocessing tool for ArcGIS Pro that generates five standard layouts from templates. I trained senior managers to use it.",
+     outcome:"Adopted organization-wide and presented at Tribal GIS.",
+     tags:["Python","ArcGIS Pro","Process automation"]},
+    {title:"Mapletics Scouting", ctx:"Co-founder, Apr 2025 – Jun 2026", tone:"rose",
+     metric:"50+ users", metricLabel:"and 20+ scouts",
+     problem:"College scouts needed a way to find prospects by where they play and compete, not just by stats.",
+     built:"Researched the recruiting process, designed the product, and shipped a no-code MVP where scouts search by proximity, regional density and event date.",
+     outcome:"Went from concept to a paid MVP on Bubble and Stripe.",
      tags:["0 to 1","User research","Bubble","Stripe"]},
-    {title:"Site file redesign and artifact data", ctx:"Seminole Tribe of Florida · 1 year", fact:["26,000+","records cleaned and standardized"],
-     short:"Rebuilt how cultural site records are collected and edited, and cleaned decades of artifact data for leadership dashboards.", out:"20+ years of data, reviewable in one place",
-     body:"<p><b>Problem.</b> Site and artifact records lived in a legacy system that was hard to search and hard to trust.</p><p><b>Built.</b> Helped redesign the schema and workflow from intake through editing: Survey123 data entry, relationship classes in a branch-versioned geodatabase, and a custom Experience Builder app. I cleaned and standardized the artifact catalog, defined metrics like depth, type and era, and built dashboards on top.</p><div class='outcome'>26,000+ records standardized; leadership used the dashboards to review 20+ years of data.</div>",
-     tags:["Data quality","Schema design","Survey123","Dashboards"]}
+    {title:"Site file redesign and artifact data", ctx:"Seminole Tribe of Florida, 1 year",
+     metric:"26,000+", metricLabel:"records cleaned",
+     problem:"Site and artifact records lived in a legacy system that was hard to search and hard to trust.",
+     built:"Redesigned the intake-to-editing workflow (Survey123, branch-versioned geodatabase, Experience Builder app), cleaned the catalog, defined metrics, and built dashboards.",
+     outcome:"Leadership used the dashboards to review 20+ years of data.",
+     tags:["Data quality","Schema design","Dashboards"]}
   ],
   work:[
     {title:"Fieldwork hub and shovel test tracker", ctx:"3 months", imgs:["shovel-test-dashboard.jpg"],
@@ -430,6 +461,26 @@ const P={
   ]
 };
 
+const fbox=document.getElementById('featured');
+P.featured.forEach(p=>{
+  const side=p.imgs?`<img src="assets/${p.imgs[0]}" alt="" loading="lazy">`:'';
+  fbox.insertAdjacentHTML('beforeend',`<article class="fcard">
+    <div class="f-main">
+      <div class="f-ctx">${p.ctx}</div>
+      <h3>${p.title}</h3>
+      <dl class="pbo">
+        <div><dt>Problem</dt><dd>${p.problem}</dd></div>
+        <div><dt>Built</dt><dd>${p.built}</dd></div>
+        <div><dt>Outcome</dt><dd>${p.outcome}</dd></div>
+      </dl>
+      <div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    </div>
+    <div class="f-side ${p.tone||''}">
+      <div class="f-metric"><b>${p.metric}</b><span>${p.metricLabel}</span></div>
+      ${side}
+    </div>
+  </article>`);
+});
 const ALL=[];
 document.querySelectorAll('[data-list]').forEach(box=>{
   P[box.dataset.list].forEach(p=>{
